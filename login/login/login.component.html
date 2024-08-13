@@ -1,0 +1,24 @@
+<!-- This template is now included directly in the component file -->
+<div class="login-container">
+    <div class="login-card">
+      <h2 class="login-title">Welcome Back</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password">
+        </div>
+        <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login</button>
+      </form>
+      @if (errorMessage()) {
+        <p class="error-message">{{ errorMessage() }}</p>
+      }
+      <div class="additional-options">
+        <a href="#">Forgot password?</a>
+        <a href="#">Create an account</a>
+      </div>
+    </div>
+  </div>
